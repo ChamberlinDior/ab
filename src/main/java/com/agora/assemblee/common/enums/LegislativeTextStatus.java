@@ -1,0 +1,2 @@
+package com.agora.assemblee.common.enums;
+public enum LegislativeTextStatus { DRAFT, FILED, ADMISSIBLE, ASSIGNED_TO_COMMITTEE, UNDER_REVIEW, READY_FOR_PLENARY, ADOPTED, REJECTED, RETURNED, PUBLISHED, ARCHIVED }

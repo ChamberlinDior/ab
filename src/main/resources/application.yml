@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: agora-assemblee-backend
+  profiles:
+    default: local
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 120MB
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,env
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  jwt:
+    expiration-minutes: 180
+    refresh-expiration-minutes: 1440
+    secret: ${JWT_SECRET:change-me-in-env-change-me-in-env-change-me}
+  cors:
+    allowed-origins: ${APP_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:8081,http://localhost:19006,exp://127.0.0.1:19000}
+  storage:
+    root: ${APP_STORAGE_ROOT:./storage}
+  network:
+    public-base-url: ${APP_NETWORK_PUBLIC_BASE_URL:http://127.0.0.1:8080}
+    discovery-enabled: true
