@@ -1,31 +1,18 @@
 package com.agora.assemblee.plenary.dto;
 
 import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
-public record PlenarySessionRequest(
-        @NotBlank(message = "Le titre de la séance est obligatoire")
+public record UpdatePlenarySessionRequest(
         String title,
-
-        @NotBlank(message = "Le type de séance est obligatoire")
         String sessionType,
-
-        @NotNull(message = "La session d'assemblée est obligatoire")
         Long assemblySessionId,
-
         Long presidingUserId,
-
         String location,
-
         @FutureOrPresent(message = "La date de début doit être présente ou future")
         LocalDateTime startDateTime,
-
         LocalDateTime endDateTime,
-
         Integer expectedMembersCount,
-
         Integer quorumThresholdPercent
 ) {}
